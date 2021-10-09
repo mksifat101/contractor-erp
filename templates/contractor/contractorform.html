@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Contractor Form</h6>
+        </div>
+        <div class="card-body">
+            <form action="{% url 'contractorform' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group row">
+                    <label for="inputUser" class="col-sm-2 col-form-label">Username</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputUser" placeholder="{{ request.user.username }}"
+                            disabled>
+                        <!-- <input type="hidden" name=""> -->
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputMobile" class="col-sm-2 col-form-label">Mobile Number</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputMobile" placeholder="Mobile Number"
+                            name="mobile">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputAddress" class="col-sm-2 col-form-label">Address</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Address" name="address">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPost" class="col-sm-2 col-form-label">Post Code</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputPost" placeholder="Post Code" name="post_code">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputBusinessname" class="col-sm-2 col-form-label">Business Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputBusinessname" placeholder="Business Name"
+                            name="business_name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputBusinesssize" class="col-sm-2 col-form-label">Business Size</label>
+                    <select id="inputBusinesssize" class="form-control" name="business_size">
+                        <option>1 - 5 employees</option>
+                        <option>6 - 10 employees</option>
+                        <option>10+ employees</option>
+                    </select>
+                </div>
+                <div class="form-group row">
+                    <label for="inputAbn" class="col-sm-2 col-form-label">ABN Number</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputAbn" placeholder="ABN Number"
+                            name="abn_number">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputVehicle" class="col-sm-2 col-form-label">Vehicle Registration</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputVehicle" placeholder="Vehicle Registration"
+                            name="vehicle">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputBank" class="col-sm-2 col-form-label">Bank Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputBank" placeholder="Bank Name" name="bank_name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputBsb" class="col-sm-2 col-form-label">BSB Number</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputBsb" placeholder="BSB Number"
+                            name="bsb_number">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputAccountnumber" class="col-sm-2 col-form-label">Account Number</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputAccountnumber" placeholder="Account Number"
+                            name="account_number">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputAccountname" class="col-sm-2 col-form-label">Account Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputAccountname" placeholder="Account Name"
+                            name="account_name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputDriver" class="col-sm-2 col-form-label">Copy Of Driving License</label>
+                    <div class="col-sm-10">
+                        <input type="file" id="inputDriver" name="driver_license">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputInsurance" class="col-sm-2 col-form-label">Copy Of Insurance</label>
+                    <div class="col-sm-10">
+                        <input type="file" id="inputInsurance" name="insurence">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPhoto" class="col-sm-2 col-form-label">Copy Of Photo ID</label>
+                    <div class="col-sm-10">
+                        <input type="file" id="inputPhoto" name="image">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

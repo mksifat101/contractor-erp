@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Contractor Form</h6>
+        </div>
+        <div class="card-body">
+            <form action="{% url 'addemployee' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group row">
+                    <label for="inputFirstname" class="col-sm-2 col-form-label">First Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputFirstname" placeholder="First Name"
+                            name="firstname">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputLastname" class="col-sm-2 col-form-label">Last Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputLastname" placeholder="Last Name"
+                            name="lastname">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputOccupation" class="col-sm-2 col-form-label">Occupation</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputOccupation" placeholder="Occupation"
+                            name="occupation">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputApprentice" class="col-sm-2 col-form-label">Apprentice</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputApprentice" placeholder="Apprentice"
+                            name="apprentice">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputExperience" class="col-sm-2 col-form-label">Years of experience in this
+                        role</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputExperience"
+                            placeholder="Years of experience in this role" name="experience">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputExperience" class="col-sm-2 col-form-label">Phone Number</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputExperience" placeholder="Phone Number"
+                            name="phone_number">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputMobile" class="col-sm-2 col-form-label">Mobile</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputMobile" placeholder="Mobile" name="mobile">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputDob" class="col-sm-2 col-form-label">Date Of Birth</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputDob" placeholder="YYYY-MM-DD" name="dob">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputAddress" class="col-sm-2 col-form-label">Address</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Address" name="address">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputLegall_in_au" class="col-sm-2 col-form-label">Are you legally entitled to work in
+                        Australia</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputLegall_in_au"
+                            placeholder="Are you legally entitled to work in Australia" name="legall_in_au">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputWork_in_ct" class="col-sm-2 col-form-label">Have you worked in the construction
+                        industry in the last 2 years?</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputWork_in_ct"
+                            placeholder="Have you worked in the construction industry in the last 2 years?"
+                            name="work_in_ct">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputExperience_ct" class="col-sm-2 col-form-label">Years of experience in the
+                        construction industry</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputExperience_ct"
+                            placeholder="Years of experience in the construction industry" name="experience_ct">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputAboriginal" class="col-sm-2 col-form-label">Are you of Aboriginal Origin?</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputAboriginal"
+                            placeholder="Are you of Aboriginal Origin?" name="aboriginal">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputIslander" class="col-sm-2 col-form-label">Are you of Torres Strait Islander
+                        Origin?</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputIslander"
+                            placeholder="Are you of Torres Strait Islander Origin?" name="islander">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputMedical" class="col-sm-2 col-form-label">Do you have any medical conditions or a
+                        medical history?</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputMedical"
+                            placeholder="Do you have any medical conditions or a medical history?" name="medical">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEnglish" class="col-sm-2 col-form-label">Do you speak English as a second
+                        language?</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputEnglish"
+                            placeholder="Do you speak English as a second language?" name="english">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputInterpreter" class="col-sm-2 col-form-label">Do you require the services of an
+                        interpreter?</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputInterpreter"
+                            placeholder="Do you require the services of an interpreter?" name="interpreter">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEm_name" class="col-sm-2 col-form-label">Emergency Contact Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputEm_name" placeholder="Emergency Contact Name"
+                            name="em_name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEm_phone" class="col-sm-2 col-form-label">Emergency Contact Phone Number</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputEm_phone"
+                            placeholder="Emergency Contact Phone Number" name="em_phone">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEm_relation" class="col-sm-2 col-form-label">Relationship</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputEm_relation"
+                            placeholder="Emergency Contact Relationship" name="em_relation">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
