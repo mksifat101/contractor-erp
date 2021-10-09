@@ -15,8 +15,10 @@ from django.http import HttpResponse
 from django.template.loader import get_template
 from xhtml2pdf import pisa
 from django.views.generic import View
+# Mail Config
+# from django.core.mail import send_mail
 
-# PDF
+# PDF Render Config
 
 
 def render_to_pdf(template_src, context_dict={}):
@@ -31,7 +33,7 @@ def render_to_pdf(template_src, context_dict={}):
 
 class GeneratePdf(View):
     def get(self, request, *args, **kwargs):
-        employee = get_object_or_404(Employee)
+        employee = Employee.objects.all()
         context = {
             'employee': employee,
         }
@@ -53,10 +55,10 @@ def registration(request):
                 return redirect('registration')
             else:
                 user = User.objects.create_user(
-                    firstname=firstname, username=username, lastname=lastname, email=email, password=password, rpassword=rpassword)
+                    first_name=firstname, username=username, last_name=lastname, email=email, password=password)
                 auth.login(request, user)
                 messages.success(request, 'You are successfully logged In')
-                return redirect('home')
+                return redirect('contractorform')
                 user.save()
                 messages.success(request, 'Your Successfuly Register')
                 return redirect('login')
@@ -162,10 +164,31 @@ def addemployee(request):
                                            legall_in_au=legall_in_au, work_in_ct=work_in_ct, experience_ct=experience_ct, aboriginal=aboriginal, islander=islander, medical=medical, english=english, interpreter=interpreter, em_name=em_name, em_phone=em_phone, em_relation=em_relation)
         messages.success(request, 'Employee Added Successfully')
         return redirect('employee')
+        # pdf = render_to_pdf('invoice.html', context)
+        # if pdf:
+        #     response = HttpResponse(pdf, content_type='application/pdf')
+        #     filename = "Invoice_%s.pdf" % ("12341231")
+        #     content = "inline; filename='%s'" % (filename)
+        #     download = request.GET.get("download")
+        #     if download:
+        #         content = "attachment; filename='%s'" % (filename)
+        #     response['Content-Disposition'] = content
+        #     return response
+        # send_mail(
+        #     'Employ Information',
+        #     'Here is the message.'+pdf,
+        #     'mksifat101@gmail.com',
+        #     ['mksifat101@gmail.com'],
+        #     fail_silently=False,
+        # )
         employee.save()
     return render(request, 'contractor/addemployee.html')
 
 
 @login_required(login_url='login')
 def employee(request):
-    return render(request, 'contractor/employee.html')
+    employee = Employee.objects.all()
+    context = {
+        'employee': employee
+    }
+    return render(request, 'contractor/employee.html', context)

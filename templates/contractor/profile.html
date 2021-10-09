@@ -13,7 +13,43 @@
                 <div class="card-body">
                     <h5 class="">Username: {{ user.username }}</h5>
                     <h5 class="">Name: {{ user.first_name }} {{ user.last_name }}</h5>
-
+                    <h5 class="">Email: {{ user.email }}</h5>
+                    <h5 class="">Phone: {{ user.profile.mobile }}</h5>
+                    <h5 class="">Address: {{ user.profile.address }}</h5>
+                    <h5 class="">Post Code: {{ user.profile.post_code }}</h5>
+                    <h5 class="">Business Size: {{ user.profile.business_size }}</h5>
+                    <h5 class="">Business Name: {{ user.profile.business_name }}</h5>
+                    <h5 class="">ABN Number: {{ user.profile.abn_number }}</h5>
+                    <h5 class="">Vehicle Registration: {{ user.profile.vehicle }}</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-header">Bank Detail</div>
+                <div class="card-body">
+                    <h5 class="">Bank Account: {{ user.profile.bank_name }}</h5>
+                    <h5 class="">BSB Number: {{ user.profile.bsb_number }}</h5>
+                    <h5 class="">Account Number: {{ user.profile.account_number }}</h5>
+                    <h5 class="">Account Name: {{ user.profile.account_name }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-header">Driving License</div>
+                <div class="card-body">
+                    <img src="{{ user.profile.driver_license.url }}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-header">Insurence</div>
+                <div class="card-body">
+                    <img src="{{ user.profile.insurence.url }}" alt="">
                 </div>
             </div>
         </div>
